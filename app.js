@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 var app = express()
 
 //Configuración de rutas
+var usersRoutes = require('./routes/users') //Rutas de los metodos de USER importadas
 
 //Middlewares
 app.use(bodyParser.urlencoded({extended:false})) //Configuraciones necesarias
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 })
 
 //Cargar rutas
+app.use('/users',usersRoutes) //Rutas de los metodos de USER cargada
 
 //Exportamos la app
 module.exports = app
